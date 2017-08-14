@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.amplafi</groupId>
+    <artifactId>amplafi-flow-guice</artifactId>
+    <version>0.1</version>
+    <!-- <parent> <groupId>com.amplafi</groupId> <artifactId>farreaches-common</artifactId> <version>0.9-SNAPSHOT</version> <relativePath>../farreaches-common/pom.xml</relativePath> 
+        </parent> -->
+    <packaging>jar</packaging>
+    <name>Amplafi Flow Guice</name>
+    <description></description>
+    <url>http://amplafi.com</url>
+    <inceptionYear>2006</inceptionYear>
+    <properties>
+        <amplafi-sworddance-build>1.0.7</amplafi-sworddance-build>
+        <guice-build>4.1.0</guice-build>
+    </properties>
+    <licenses>
+        <license>
+            <name></name>
+            <distribution></distribution>
+            <comments>
+                
+            </comments>
+        </license>
+    </licenses>
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <resources>
+            <!-- need to explicitly reinclude the default directory -->
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/ext-resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <!-- need to explicitly reinclude the default directory -->
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <reporting>
+        <outputDirectory>../target/site/${project.artifactId}</outputDirectory>
+    </reporting>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>${guice-build}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.inject.extensions/guice-multibindings -->
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-multibindings</artifactId>
+            <version>${guice-build}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.amplafi</groupId>
+            <artifactId>amplafi-sworddance</artifactId>
+            <version>${amplafi-sworddance-build}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.amplafi</groupId>
+            <artifactId>amplafi-sworddance</artifactId>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+            <version>${amplafi-sworddance-build}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.amplafi</groupId>
+            <artifactId>amplafi-flow-core</artifactId>
+            <version>0.9.4-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.amplafi</groupId>
+            <artifactId>amplafi-flow-core</artifactId>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+            <version>0.9.4-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -8,7 +8,19 @@ import com.evernote.edam.Business;;
 
 public class BusinessFlowPropertyDefinitionBuilderProvider extends BaseFlowPropertyDefinitionBuilderProvider implements FlowPropertyDefinitionBuilderProvider {
 
-    public static final BusinessFlowPropertyDefinitionBuilderProvider INSTANCE = new BusinessFlowPropertyDefinitionBuilderProvider();
+    public class BusinessFlowPropertyDefinitionBuilderProviderFactory {
+        public BusinessFlowPropertyDefinitionBuilderProviderFactory() {
+
+        }
+
+        public BusinessFlowPropertyDefinitionBuilderProvider create() {
+            FlowPropertyDefinitionBuilder flowPropertyDefinitionBuilder =
+                    new FlowPropertyDefinitionBuilder("business", Business.class);
+            BusinessFlowPropertyValuePersister businessFlowPropertyValuePersister =
+
+            new BusinessFlowPropertyDefinitionBuilderProvider();
+        }
+    }
 
     public BusinessFlowPropertyDefinitionBuilderProvider() {
         this("business");

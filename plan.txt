@@ -1,0 +1,21 @@
+
+Demo:
+
+0. object only changes at boundary
+ 
+ 
+requirements:
+  value provider
+  value persister
+  flow transaction
+  
+  3 flows 
+    1) r/w (and then a second time by another user)
+    2) limited r/w (show cannot change id)
+  
+  
+1. an object can only be altered if the object has a persister (even if bug in the flow ) 
+
+2. An object is 'owned'. Another user cannot access the owned object
+
+3. an object can have segmented properties that are altered independently

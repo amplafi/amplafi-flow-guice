@@ -22,7 +22,7 @@ public class BusinessFlowPropertyValuePersister implements FlowPropertyValuePers
 
     @Override
     public boolean isPersisting(FlowPropertyExpectation flowPropertyExpectation) {
-        return false;
+        return true;
     }
 
 }

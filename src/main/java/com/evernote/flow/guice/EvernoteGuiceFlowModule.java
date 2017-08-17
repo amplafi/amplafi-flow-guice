@@ -1,27 +1,29 @@
 package com.evernote.flow.guice;
 
 import org.amplafi.flow.FlowDefinitionsManager;
-import org.amplafi.flow.impl.FlowDefinitionsManagerImpl;
-
 import com.amplafi.flow.guice.FlowGuiceModule;
+import com.evernote.flow.guice.providers.BusinessFlowPropertyDefinitionBuilderProvider;
 import com.google.inject.AbstractModule;
-import com.google.inject.Provides;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 public class EvernoteGuiceFlowModule extends AbstractModule {
 
     public EvernoteGuiceFlowModule() {
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     protected void configure() {
-        install(new FlowGuiceModule());
-        FlowDefinitionsManager flowDefinitionsManager =
+        FlowGuiceModule flowGuiceModule = new FlowGuiceModule();
+        install(flowGuiceModule);
+        Injector injector = Guice.createInjector(flowGuiceModule);
+        FlowDefinitionsManager flowDefinitionsManager = injector.getInstance(FlowDefinitionsManager.class);
+        flowDefinitionsManager.addFactoryFlowPropertyDefinitionBuilderProvider(new BusinessFlowPropertyDefinitionBuilderProvider());
     }
 
-    @Provides
-    public FlowDefinitionsManager createFlowDefinitionsManager() {
-        return new FlowDefinitionsManagerImpl();
-    }
+//    @Provides
+//    public FlowDefinitionsManager createFlowDefinitionsManager() {
+//        return new FlowDefinitionsManagerImpl();
+//    }
 
 }

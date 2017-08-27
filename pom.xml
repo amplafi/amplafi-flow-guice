@@ -16,6 +16,8 @@
     <properties>
         <amplafi-sworddance-build>1.0.7</amplafi-sworddance-build>
         <guice-build>4.1.0</guice-build>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <licenses>
         <license>

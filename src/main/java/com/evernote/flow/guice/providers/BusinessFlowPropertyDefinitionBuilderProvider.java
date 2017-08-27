@@ -6,29 +6,22 @@ import org.amplafi.flow.flowproperty.FlowPropertyDefinitionBuilderProvider;
 
 import com.evernote.edam.Business;;
 
-public class BusinessFlowPropertyDefinitionBuilderProvider extends BaseFlowPropertyDefinitionBuilderProvider implements FlowPropertyDefinitionBuilderProvider {
+public class BusinessFlowPropertyDefinitionBuilderProvider extends BaseFlowPropertyDefinitionBuilderProvider
+                                                           implements FlowPropertyDefinitionBuilderProvider {
 
-    public class BusinessFlowPropertyDefinitionBuilderProviderFactory {
-        public BusinessFlowPropertyDefinitionBuilderProviderFactory() {
-
-        }
-
+    public static class Factory {
         public BusinessFlowPropertyDefinitionBuilderProvider create() {
-            FlowPropertyDefinitionBuilder flowPropertyDefinitionBuilder =
-                    new FlowPropertyDefinitionBuilder("business", Business.class);
+            FlowPropertyDefinitionBuilder flowPropertyDefinitionBuilder = new FlowPropertyDefinitionBuilder("business", Business.class);
             BusinessFlowPropertyValuePersister businessFlowPropertyValuePersister =
-
-            new BusinessFlowPropertyDefinitionBuilderProvider();
+                    new BusinessFlowPropertyValuePersister(flowPropertyDefinitionBuilder);
+            BusinessFlowPropertyValueProvider flowPropertyValueProvider = new BusinessFlowPropertyValueProvider(flowPropertyDefinitionBuilder);
+            flowPropertyDefinitionBuilder.initFlowPropertyValuePersister(businessFlowPropertyValuePersister)
+                .initFlowPropertyValueProvider(flowPropertyValueProvider);
+            return new BusinessFlowPropertyDefinitionBuilderProvider(flowPropertyDefinitionBuilder);
         }
     }
 
-    public BusinessFlowPropertyDefinitionBuilderProvider() {
-        this("business");
-    }
-    @SuppressWarnings("unchecked")
-    public BusinessFlowPropertyDefinitionBuilderProvider(String parameterName) {
-        super(new FlowPropertyDefinitionBuilder(parameterName, Business.class)
-            .initFlowPropertyValuePersister(new BusinessFlowPropertyValuePersister())
-            .initFlowPropertyValueProvider(new BusinessFlowPropertyValueProvider()));
+    public BusinessFlowPropertyDefinitionBuilderProvider(FlowPropertyDefinitionBuilder flowPropertyDefinitionBuilder) {
+        super(flowPropertyDefinitionBuilder);
     }
 }

@@ -12,9 +12,8 @@ import org.amplafi.flow.flowproperty.FlowPropertyProvider;
  */
 public class BusinessFlowPropertyValueProvider extends AbstractFlowPropertyValueProvider {
 
-
-    public BusinessFlowPropertyValueProvider() {
-        super(new FlowPropertyDefinitionBuilder("business"));
+    public BusinessFlowPropertyValueProvider(FlowPropertyDefinitionBuilder flowPropertyDefinitionBuilder) {
+        super(flowPropertyDefinitionBuilder);
     }
 
     /**

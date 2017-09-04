@@ -6,6 +6,7 @@ import org.amplafi.flow.flowproperty.FlowPropertyDefinitionBuilderProvider;
 
 import com.evernote.edam.Business;;
 
+@Inject
 public class BusinessFlowPropertyDefinitionBuilderProvider extends BaseFlowPropertyDefinitionBuilderProvider
                                                            implements FlowPropertyDefinitionBuilderProvider {
 

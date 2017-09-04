@@ -27,6 +27,8 @@ public class Main {
 
         if (flowPropertyDefinitionBuilder != null) {
             System.out.println("found def");
+        } else {
+            System.out.println("wtf: found def");
         }
         if (flowManager.isFlowDefined("test")) {
             System.out.println("success");

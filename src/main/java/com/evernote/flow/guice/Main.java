@@ -30,7 +30,7 @@ public class Main {
         } else {
             System.out.println("wtf: found def");
         }
-        if (flowManager.isFlowDefined("test")) {
+        if (flowManager.isFlowDefined(EvernoteFlowsDefinitionSource.WRITEABLE)) {
             System.out.println("success");
         } else {
             System.out.println("failure");

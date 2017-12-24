@@ -14,8 +14,6 @@ public class ReadBusinessFlowActivityImpl extends FlowActivityImpl {
         super.addStandardFlowPropertyDefinitions();
         BusinessFlowPropertyDefinitionBuilderProvider businessFlowPropertyDefinitionBuilderProvider =
                 (new BusinessFlowPropertyDefinitionBuilderProvider.Factory()).create();
-
-        businessFlowPropertyDefinitionBuilderProvider
     }
 
 }
